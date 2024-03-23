@@ -1,8 +1,21 @@
 import express from "express";
-import { createBlog } from "../controllers/Blogs.controller.js";
+import {
+  AuthorBlogs,
+  CategoryBlogs,
+  createBlog,
+  DeleteBlog,
+  fetchBlog,
+  UpdateBlog,
+} from "../controllers/Blogs.controller.js";
 
 const router = express.Router();
 
-router.get("/", createBlog);
+router.post("/create", createBlog);
+router.get("/delete/:_id", DeleteBlog);
+router.post("/update", UpdateBlog);
+router.get("/fetch", fetchBlog);
+router.get("/myblogs/:author_id", AuthorBlogs);
+//test them all
+router.get("/category/:category_name", CategoryBlogs);
 
 export default router;

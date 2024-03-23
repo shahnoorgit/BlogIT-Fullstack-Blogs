@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const blogSchema = new mongoose.Schema({
+  thumbnail: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -33,3 +37,6 @@ const blogSchema = new mongoose.Schema({
     },
   ],
 });
+
+const blog = mongoose.model("Blog", blogSchema);
+export default blog;

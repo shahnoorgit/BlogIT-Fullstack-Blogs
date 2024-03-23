@@ -17,8 +17,8 @@ app.listen(process.env.PORT, () => {
   console.log("running");
 });
 
-app.use("users", AuthRoute);
-app.use("api/blog", BlogRoute);
+app.use("/users", AuthRoute);
+app.use("/api/blog", BlogRoute);
 
 app.get("/", (req, res) => {
   res.send("api is available");
