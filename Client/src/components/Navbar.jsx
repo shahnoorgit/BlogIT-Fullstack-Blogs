@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { IoMdLogIn } from "react-icons/io";
+import useLogout from "../Hooks/useLogout";
 
-const Navbar = () => {
+// eslint-disable-next-line react/prop-types
+const Navbar = ({ Auth }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { loading, Logout } = useLogout();
+  const handleLogout = () => {
+    Logout();
+  };
   return (
-    <nav className=" bg-slate-500 rounded-full max-sm:rounded-lg shadow-lg">
+    <nav className=" bg-cyan-400 rounded-full max-sm:rounded-lg shadow-lg">
       <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-evenly py-[10px] max-sm:justify-between  h-16">
           <div className="flex items-center">
@@ -42,9 +48,16 @@ const Navbar = () => {
                   Contact
                 </a>
                 <>
-                  <a className="flex gap-2 items-center text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Login <IoMdLogIn className=" text-xl" />
-                  </a>
+                  {Auth ? (
+                    <a
+                      onClick={() => handleLogout()}
+                      className="flex gap-2 items-center text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Logout <IoMdLogIn className=" text-xl" />
+                    </a>
+                  ) : (
+                    ""
+                  )}
                 </>
               </div>
             </div>
@@ -101,29 +114,39 @@ const Navbar = () => {
         <div className="md:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a
-              href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              href="/"
+              className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Home
             </a>
             <a
-              href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              href="/"
+              className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               About
             </a>
             <a
-              href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              href="/"
+              className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Services
             </a>
             <a
-              href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              href="/"
+              className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Contact
             </a>
+            {Auth ? (
+              <a
+                onClick={() => handleLogout()}
+                className="flex gap-2 items-center text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Logout <IoMdLogIn className=" text-xl" />
+              </a>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       )}

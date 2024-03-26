@@ -2,8 +2,10 @@ import Author from "../models/user.model.js";
 import generateTokenandsetCookie from "../utils/jwt.token.js";
 import bcrypt from "bcrypt";
 
-export const Signin = async (req, res) => {
-  const { name, password, email, bio, username, confirmPassword } = req.body;
+export const Signup = async (req, res) => {
+  const { profile, name, password, email, bio, username, confirmPassword } =
+    req.body;
+
   const user = await Author.findOne({ username: username });
   const mail = await Author.findOne({ email: email });
   if (user) {
@@ -23,6 +25,7 @@ export const Signin = async (req, res) => {
   const salt = await bcrypt.genSalt(5);
   const HashedPassword = await bcrypt.hash(password, salt);
   const newUser = new Author({
+    profile: profile,
     name: name,
     password: HashedPassword,
     email: email,
@@ -37,12 +40,15 @@ export const Signin = async (req, res) => {
       .then((user) => console.log("new user saved"))
       .catch((err) => console.log(err));
     res.status(200).json({
+      profile: newUser.profile,
       id: newUser.id,
       name: newUser.name,
       bio: newUser.bio,
       blogs: newUser.blogs,
     });
+    console.log("new user");
   }
+  console.log("not err but still user not created");
 };
 
 export const Login = async (req, res) => {

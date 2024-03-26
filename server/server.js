@@ -8,16 +8,15 @@ import BlogRoute from "./routes/Blog.route.js";
 dotenv.config();
 
 const app = express();
-
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 app.listen(process.env.PORT, () => {
   connectDb();
   console.log("running");
 });
 
-app.use("/users", AuthRoute);
+app.use("/api/users", AuthRoute);
 app.use("/api/blog", BlogRoute);
 
 app.get("/", (req, res) => {
