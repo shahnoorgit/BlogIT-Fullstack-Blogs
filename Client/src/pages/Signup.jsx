@@ -10,7 +10,7 @@ const Signup = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    profile: "profileURL",
+    profile: "",
     bio: "hey there i'm Using BlogIT",
   });
   const base64 = (e) => {
@@ -51,7 +51,7 @@ const Signup = () => {
               <span className="text-base label-text">Add Your Profile</span>
             </label>
             <input
-              //onChange={(e) => base64(e)}
+              onChange={(e) => base64(e)}
               type="file"
               className="file-input w-full max-w-xs"
               required

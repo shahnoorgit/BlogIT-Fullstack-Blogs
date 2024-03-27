@@ -43,8 +43,10 @@ export const Signup = async (req, res) => {
       profile: newUser.profile,
       id: newUser.id,
       name: newUser.name,
+      username: newUser.username,
       bio: newUser.bio,
       blogs: newUser.blogs,
+      profile: newUser.profile,
     });
     console.log("new user");
   }
@@ -65,6 +67,9 @@ export const Login = async (req, res) => {
   generateTokenandsetCookie(user._id, res);
   res.status(200).json({
     name: user.name,
+    username: user.username,
+    id: user._id,
+    profile: user.profile,
     bio: user.bio,
     blogs: user.blogs,
   });

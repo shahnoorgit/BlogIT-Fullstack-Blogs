@@ -1,9 +1,4 @@
-import { useContext } from "react";
-import { AuthProvider } from "../context/AuthContext";
-
 const Home = () => {
-  const { Auth } = useContext(AuthProvider);
-  console.log("hii", Auth);
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">

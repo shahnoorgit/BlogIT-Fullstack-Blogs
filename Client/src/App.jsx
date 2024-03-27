@@ -9,7 +9,8 @@ import { Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 
 const App = () => {
-  const { Auth } = useContext(AuthProvider);
+  const { Auth, isAuth } = useContext(AuthProvider);
+  console.log(isAuth);
   return (
     <>
       <Navbar Auth={Auth} />
@@ -17,9 +18,12 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route
           path="/sign-up"
-          element={Auth ? <Navigate to="/" /> : <Signup />}
+          element={isAuth ? <Navigate to="/" /> : <Signup />}
         />
-        <Route path="/login" element={Auth ? <Navigate to="/" /> : <Login />} />
+        <Route
+          path="/login"
+          element={isAuth ? <Navigate to="/" /> : <Login />}
+        />
       </Routes>
       <Toaster />
     </>
