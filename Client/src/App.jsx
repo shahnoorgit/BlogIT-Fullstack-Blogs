@@ -10,10 +10,9 @@ import Login from "./pages/Login";
 
 const App = () => {
   const { Auth, isAuth } = useContext(AuthProvider);
-  console.log(isAuth);
   return (
     <>
-      <Navbar Auth={Auth} />
+      <Navbar Auth={isAuth} user={Auth} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

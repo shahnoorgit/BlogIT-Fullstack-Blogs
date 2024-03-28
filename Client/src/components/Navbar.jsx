@@ -3,7 +3,7 @@ import { IoMdLogIn } from "react-icons/io";
 import useLogout from "../Hooks/useLogout";
 
 // eslint-disable-next-line react/prop-types
-const Navbar = ({ Auth }) => {
+const Navbar = ({ Auth, user }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { loading, Logout } = useLogout();
   const handleLogout = () => {
@@ -61,6 +61,11 @@ const Navbar = ({ Auth }) => {
                 </>
               </div>
             </div>
+            {Auth && (
+              <div>
+                <img className=" h-10 rounded-badge" src={user.profile} />
+              </div>
+            )}
           </div>
           <div className="-mr-2 flex md:hidden">
             <button
