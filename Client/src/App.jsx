@@ -14,7 +14,7 @@ const App = () => {
     <>
       <Navbar Auth={isAuth} user={Auth} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home isAuth={isAuth} />} />
         <Route
           path="/sign-up"
           element={isAuth ? <Navigate to="/" /> : <Signup />}

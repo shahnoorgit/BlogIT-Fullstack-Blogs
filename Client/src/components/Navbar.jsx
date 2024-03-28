@@ -5,7 +5,7 @@ import useLogout from "../Hooks/useLogout";
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ Auth, user }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { loading, Logout } = useLogout();
+  const { Logout } = useLogout();
   const handleLogout = () => {
     Logout();
   };
@@ -63,7 +63,11 @@ const Navbar = ({ Auth, user }) => {
             </div>
             {Auth && (
               <div>
-                <img className=" h-10 rounded-badge" src={user.profile} />
+                <img
+                  className=" max-sm:hidden h-10 rounded-badge"
+                  // eslint-disable-next-line react/prop-types
+                  src={user.profile}
+                />
               </div>
             )}
           </div>
