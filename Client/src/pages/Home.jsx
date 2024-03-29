@@ -29,7 +29,14 @@ const Home = ({ isAuth }) => {
           </div>
         </div>
       )}
-      {isAuth && <Card />}
+      {isAuth && (
+        <div className=" mt-10 flex max-sm:flex-col gap-5 p-20 pt-10 justify-center border items-center w-screen">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      )}
     </>
   );
 };
