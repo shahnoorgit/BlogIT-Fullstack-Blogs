@@ -2,20 +2,31 @@ import blog from "../models/blog.model.js";
 import Author from "../models/user.model.js";
 
 export const createBlog = async (req, res) => {
-  const { author_id, title, content, category, img } = req.body;
+  const { author_id, title, description, categories, image, name } = req.body;
   try {
+    if (title.length < 5) {
+      return res
+        .status(201)
+        .json({ error: "title must be at least 5 characters" });
+    }
+    if (description.length < 5) {
+      return res
+        .status(201)
+        .json({ error: "description must be at least 5 characters" });
+    }
     const newBlog = new blog({
-      thumbnail: img,
+      author_name: name,
+      thumbnail: image,
       title: title,
-      content: content,
+      content: description,
       author: author_id,
       date: Date.now(),
-      categories: [category],
+      categories: categories,
     });
     await newBlog.save().then((savedBlog) => {
       console.log("blog saved successfully");
       Author.findByIdAndUpdate(
-        _id,
+        author_id,
         { $push: { blogs: savedBlog._id } },
         { new: true }
       )

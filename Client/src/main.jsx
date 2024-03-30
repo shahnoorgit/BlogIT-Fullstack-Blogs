@@ -4,13 +4,16 @@ import App from "./App.jsx";
 import "./index.css";
 import AuthContext from "./context/AuthContext.jsx";
 import { BrowserRouter } from "react-router-dom";
+import BlogContext from "./context/BlogContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthContext>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <BlogContext>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </BlogContext>
     </AuthContext>
   </React.StrictMode>
 );

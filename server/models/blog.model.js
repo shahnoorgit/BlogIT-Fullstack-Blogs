@@ -19,6 +19,10 @@ const blogSchema = new mongoose.Schema(
       ref: "Author",
       required: true,
     },
+    author_name: {
+      type: String,
+      required: true,
+    },
     date: {
       type: Date,
       default: Date.now,
@@ -29,11 +33,11 @@ const blogSchema = new mongoose.Schema(
         enum: [
           "music",
           "sports",
-          "AI",
-          "Technology",
+          "aI",
+          "technology",
           "all",
           "politic",
-          "Genral knowledge",
+          "genral knowledge",
         ],
       },
     ],

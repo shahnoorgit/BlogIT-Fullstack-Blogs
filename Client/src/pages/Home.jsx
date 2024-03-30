@@ -1,7 +1,23 @@
+import { useContext, useEffect } from "react";
 import Card from "../components/Card";
+import useFetch from "../Hooks/useFetch";
+import { BlogsProvider } from "../context/BlogContext";
 
 // eslint-disable-next-line react/prop-types
 const Home = ({ isAuth }) => {
+  const { Blogs, myBlog } = useContext(BlogsProvider);
+  console.log(myBlog);
+  const { fetchBlog, loading } = useFetch();
+  useEffect(() => {
+    fetchBlog();
+  }, []);
+  if (loading) {
+    return (
+      <center>
+        <span className=" loading  loading-lg  mt-48 " />
+      </center>
+    );
+  }
   return (
     <>
       {!isAuth && (
@@ -30,12 +46,18 @@ const Home = ({ isAuth }) => {
         </div>
       )}
       {isAuth && (
-        <div className=" mt-10 flex max-sm:flex-col gap-5 p-20 pt-10 justify-center border items-center w-screen">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
+        <>
+          <center>
+            <h1 className=" text-3xl mt-10 divider">
+              Recent Blogs From Community
+            </h1>
+          </center>
+          <div className=" grid grid-cols-4 gap-5 p-5 max-sm:grid-cols-1">
+            {Blogs.map((blogs) => (
+              <Card key={blogs.id} blog={blogs} />
+            ))}
+          </div>
+        </>
       )}
     </>
   );
