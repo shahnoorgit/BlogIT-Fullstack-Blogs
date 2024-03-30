@@ -30,10 +30,10 @@ const Navbar = ({ Auth, user }) => {
                   Home
                 </a>
                 <a
-                  href="#"
+                  href="/my-blogs"
                   className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  About
+                  My Blogs
                 </a>
                 <a
                   href="#"
@@ -64,9 +64,9 @@ const Navbar = ({ Auth, user }) => {
             {Auth && (
               <div>
                 <img
-                  className=" max-sm:hidden h-10 rounded-badge"
+                  className=" max-sm:hidden w-10 h-10 rounded-badge"
                   // eslint-disable-next-line react/prop-types
-                  src={user.profile}
+                  src={user.profile.url}
                 />
               </div>
             )}
@@ -129,10 +129,10 @@ const Navbar = ({ Auth, user }) => {
               Home
             </a>
             <a
-              href="/"
+              href="/my-blogs"
               className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
-              About
+              My Blogs
             </a>
             <a
               href="/"

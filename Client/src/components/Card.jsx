@@ -1,6 +1,6 @@
 const Card = () => {
   return (
-    <div className=" card card-compact w-96 bg-base-100 shadow-xl m-10">
+    <div className=" hover:border-4 card card-compact h-30 w-30 bg-base-100 shadow-xl border border-1 border-blue-800">
       <figure>
         <img
           src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"

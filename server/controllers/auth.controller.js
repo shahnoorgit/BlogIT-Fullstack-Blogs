@@ -1,11 +1,22 @@
 import Author from "../models/user.model.js";
+import cloudinary from "cloudinary";
 import generateTokenandsetCookie from "../utils/jwt.token.js";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export const Signup = async (req, res) => {
   const { profile, name, password, email, bio, username, confirmPassword } =
     req.body;
 
+  const CloudinaryIMG = await cloudinary.uploader.upload(profile);
   const user = await Author.findOne({ username: username });
   const mail = await Author.findOne({ email: email });
   if (user) {
@@ -25,7 +36,10 @@ export const Signup = async (req, res) => {
   const salt = await bcrypt.genSalt(5);
   const HashedPassword = await bcrypt.hash(password, salt);
   const newUser = new Author({
-    profile: profile,
+    profile: {
+      public_id: CloudinaryIMG.public_id,
+      url: CloudinaryIMG.secure_url,
+    },
     name: name,
     password: HashedPassword,
     email: email,
@@ -40,7 +54,7 @@ export const Signup = async (req, res) => {
       .then((user) => console.log("new user saved"))
       .catch((err) => console.log(err));
     res.status(200).json({
-      profile: newUser.profile,
+      profile: newUser.profile.url,
       id: newUser.id,
       name: newUser.name,
       username: newUser.username,
