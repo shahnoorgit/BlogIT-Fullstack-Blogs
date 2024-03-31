@@ -5,6 +5,7 @@ import {
   createBlog,
   DeleteBlog,
   fetchBlog,
+  fetchBlogById,
   UpdateBlog,
 } from "../controllers/Blogs.controller.js";
 
@@ -17,5 +18,6 @@ router.get("/fetch", fetchBlog);
 router.get("/myblogs/:author_id", AuthorBlogs);
 //test them all
 router.get("/category/:category_name", CategoryBlogs);
+router.get("/fetch/:id", fetchBlogById);
 
 export default router;

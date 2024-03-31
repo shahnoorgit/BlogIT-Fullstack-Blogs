@@ -9,6 +9,8 @@ import { Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import MyBlogs from "./pages/MyBlogs";
 import CreateBlog from "./components/CreateBlog";
+import BlogPage from "./components/BlogPage";
+import Explore from "./pages/Explore";
 
 const App = () => {
   const { Auth, isAuth } = useContext(AuthProvider);
@@ -26,8 +28,16 @@ const App = () => {
           element={isAuth ? <MyBlogs /> : <Navigate to="/" />}
         />
         <Route
+          path="/read-blog/:blog_id"
+          element={isAuth ? <BlogPage /> : <Navigate to="/" />}
+        />
+        <Route
           path="/create-blog"
           element={isAuth ? <CreateBlog /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/explore"
+          element={isAuth ? <Explore /> : <Navigate to="/" />}
         />
         <Route
           path="/login"

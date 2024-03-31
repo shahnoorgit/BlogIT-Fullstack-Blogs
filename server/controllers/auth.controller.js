@@ -99,3 +99,14 @@ export const logout = (req, res) => {
     message: "Successfully logged out",
   });
 };
+
+export const fetchAuthorById = (req, res) => {
+  const { author_id } = req.params;
+  Author.findById(author_id)
+    .then((author) => {
+      res.status(200).json(author);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};

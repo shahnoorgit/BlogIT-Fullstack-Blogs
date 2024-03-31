@@ -8,8 +8,8 @@ const categories = [
   "aI",
   "technology",
   "all",
-  "politics",
-  "general Knowledge",
+  "politic",
+  "genral knowledge",
 ];
 const CreateBlog = () => {
   const nav = useNavigate();

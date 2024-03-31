@@ -10,7 +10,7 @@ const useFetch = () => {
     try {
       const res = await fetch("/api/blog/fetch");
       const data = await res.json();
-      console.log(data);
+
       setBlogs(data);
     } catch (err) {
       setLoading(false);

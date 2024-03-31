@@ -15,7 +15,7 @@ const Navbar = ({ Auth, user }) => {
         <div className="flex items-center justify-evenly py-[10px] max-sm:justify-between  h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0 text-white">
-              <a className=" min-w-[100px] max-w-[135px]" href="#">
+              <a className=" min-w-[100px] max-w-[135px]" href="/">
                 <span className=" text-white text-lg font-bold">
                   Blog<span className=" text-blue-900">IT</span>
                 </span>
@@ -36,10 +36,10 @@ const Navbar = ({ Auth, user }) => {
                   My Blogs
                 </a>
                 <a
-                  href="#"
+                  href="/explore"
                   className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Services
+                  Explore
                 </a>
                 <a
                   href="#"
@@ -135,10 +135,10 @@ const Navbar = ({ Auth, user }) => {
               My Blogs
             </a>
             <a
-              href="/"
+              href="/explore"
               className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
-              Services
+              Explore
             </a>
             <a
               href="/"

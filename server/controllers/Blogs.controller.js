@@ -105,8 +105,20 @@ export const AuthorBlogs = (req, res) => {
     });
 };
 
-export const CategoryBlogs = (req, res) => {
+export const CategoryBlogs = async (req, res) => {
   const { category_name } = req.params;
-  const Catblog = blog.find({ categories: category_name });
+  const Catblog = await blog.find({ categories: category_name });
   res.status(200).json(Catblog);
+};
+
+export const fetchBlogById = (req, res) => {
+  const { id } = req.params;
+  blog
+    .findById(id)
+    .then((blog) => {
+      res.status(200).json(blog);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };

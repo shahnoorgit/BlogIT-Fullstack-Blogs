@@ -48,7 +48,7 @@ const Home = ({ isAuth }) => {
       {isAuth && (
         <>
           <center>
-            <h1 className=" text-3xl mt-10 divider">
+            <h1 className=" max-sm:text-sm text-3xl mt-10 divider">
               Recent Blogs From Community
             </h1>
           </center>
