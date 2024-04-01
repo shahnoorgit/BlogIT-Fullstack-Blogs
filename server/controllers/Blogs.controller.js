@@ -61,12 +61,12 @@ export const DeleteBlog = async (req, res) => {
 };
 
 export const UpdateBlog = (req, res) => {
-  const { _id, title, content, img } = req.body;
+  const { _id, title, content, image } = req.body;
   blog
     .findByIdAndUpdate(
       _id,
       {
-        thumbnail: img,
+        thumbnail: image,
         title: title,
         content: content,
       },

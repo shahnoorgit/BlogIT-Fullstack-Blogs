@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  fetchAuthorById,
+  fetchAuthorByName,
   Login,
   logout,
   Signup,
@@ -11,6 +11,6 @@ const router = express.Router();
 router.post("/signup", Signup);
 router.post("/login", Login);
 router.get("/logout", logout);
-router.get("/author/:author_id", fetchAuthorById);
+router.get("/author/:author_name", fetchAuthorByName);
 
 export default router;

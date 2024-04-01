@@ -100,9 +100,9 @@ export const logout = (req, res) => {
   });
 };
 
-export const fetchAuthorById = (req, res) => {
-  const { author_id } = req.params;
-  Author.findById(author_id)
+export const fetchAuthorByName = (req, res) => {
+  const { author_name: name } = req.params;
+  Author.findOne({ name: name })
     .then((author) => {
       res.status(200).json(author);
     })

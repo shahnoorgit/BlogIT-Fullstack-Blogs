@@ -3,9 +3,11 @@ import { FaUserAlt } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { parseDateString } from "../utils/DateConvert";
+import { useNavigate } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 const BlogPage = () => {
   const { blog_id } = useParams();
+  const nav = useNavigate();
   console.log(blog_id);
   const [loading, setloading] = useState(false);
   const [blog, setBlog] = useState();
@@ -26,6 +28,9 @@ const BlogPage = () => {
     fetchBlog();
   }, []);
   console.log(blog);
+  const goToAuthor = () => {
+    nav(`/author/${blog.author_name}`);
+  };
   return (
     <>
       <div className=" border h-full">
@@ -42,7 +47,10 @@ const BlogPage = () => {
               />
             </div>
             <div className="flex gap-4 max-sm:gap-0">
-              <div className=" text-white flex gap-2 justify-start items-center mb-10 text-xl max-sm:text-sm rounded p-1 ml-5 cursor-pointer bg-blue-600">
+              <div
+                onClick={() => goToAuthor()}
+                className=" text-white flex gap-2 justify-start items-center mb-10 text-xl max-sm:text-sm rounded p-1 ml-5 cursor-pointer bg-blue-600"
+              >
                 <FaUserAlt />
                 {blog?.author_name}
               </div>

@@ -11,6 +11,8 @@ import MyBlogs from "./pages/MyBlogs";
 import CreateBlog from "./components/CreateBlog";
 import BlogPage from "./components/BlogPage";
 import Explore from "./pages/Explore";
+import AuthorPage from "./pages/AuthorPage";
+import EditPage from "./components/EditPage";
 
 const App = () => {
   const { Auth, isAuth } = useContext(AuthProvider);
@@ -36,8 +38,16 @@ const App = () => {
           element={isAuth ? <CreateBlog /> : <Navigate to="/" />}
         />
         <Route
+          path="/edit-blog/:id"
+          element={isAuth ? <EditPage /> : <Navigate to="/" />}
+        />
+        <Route
           path="/explore"
           element={isAuth ? <Explore /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/author/:author_name"
+          element={isAuth ? <AuthorPage /> : <Navigate to="/" />}
         />
         <Route
           path="/login"
