@@ -8,12 +8,12 @@ import BlogContext from "./context/BlogContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthContext>
-      <BlogContext>
-        <BrowserRouter>
+    <BrowserRouter>
+      <AuthContext>
+        <BlogContext>
           <App />
-        </BrowserRouter>
-      </BlogContext>
-    </AuthContext>
+        </BlogContext>
+      </AuthContext>
+    </BrowserRouter>
   </React.StrictMode>
 );
