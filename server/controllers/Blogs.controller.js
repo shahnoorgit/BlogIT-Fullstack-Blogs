@@ -54,6 +54,7 @@ export const DeleteBlog = async (req, res) => {
     .findByIdAndDelete(_id)
     .then(async (blog) => {
       await Author.updateOne({ _id: Dblog.author }, { $pull: { blogs: _id } });
+      res.status(200).json({ message: "Deleted successfully" });
     })
     .catch((error) => {
       console.error(error);

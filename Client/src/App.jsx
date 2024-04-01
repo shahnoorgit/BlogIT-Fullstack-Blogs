@@ -13,6 +13,7 @@ import BlogPage from "./components/BlogPage";
 import Explore from "./pages/Explore";
 import AuthorPage from "./pages/AuthorPage";
 import EditPage from "./components/EditPage";
+import Profile from "./pages/Profile";
 
 const App = () => {
   const { Auth, isAuth } = useContext(AuthProvider);
@@ -48,6 +49,10 @@ const App = () => {
         <Route
           path="/author/:author_name"
           element={isAuth ? <AuthorPage /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/my-profile"
+          element={isAuth ? <Profile /> : <Navigate to="/" />}
         />
         <Route
           path="/login"
