@@ -14,7 +14,7 @@ const useCreateBlog = () => {
     setloading(true);
     try {
       const res = await fetch(
-        "http://localhost:5000https://blogit-9doz.onrender.com/api/blog/create",
+        "https://blogit-9doz.onrender.com/api/blog/create",
         {
           method: "POST",
           headers: {
