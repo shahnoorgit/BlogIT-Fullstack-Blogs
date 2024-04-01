@@ -8,7 +8,9 @@ const useFetch = () => {
   const fetchBlog = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/blog/fetch");
+      const res = await fetch(
+        "https://blogit-9doz.onrender.com/api/blog/fetch"
+      );
       const data = await res.json();
       setBlogs(data);
     } catch (err) {

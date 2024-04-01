@@ -17,7 +17,9 @@ const EditPage = () => {
   const fetchBlog = async () => {
     setloading(true);
     try {
-      const response = await fetch(`/api/blog/fetch/${id}`);
+      const response = await fetch(
+        `https://blogit-9doz.onrender.com/api/blog/fetch/${id}`
+      );
       const data = await response.json();
       setInput({
         _id: data._id,

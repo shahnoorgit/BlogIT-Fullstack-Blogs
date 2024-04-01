@@ -17,21 +17,24 @@ const useSignup = () => {
   }) => {
     setLoading(true);
     try {
-      const res = await fetch("/api/users/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          profile,
-          name,
-          username,
-          bio,
-          password,
-          confirmPassword,
-          email,
-        }),
-      });
+      const res = await fetch(
+        "https://blogit-9doz.onrender.com/api/users/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            profile,
+            name,
+            username,
+            bio,
+            password,
+            confirmPassword,
+            email,
+          }),
+        }
+      );
       const data = await res.json();
 
       if (data.error) {

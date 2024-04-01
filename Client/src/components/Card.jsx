@@ -22,7 +22,9 @@ const Card = ({ blog }) => {
   const formatedDate = parseDateString(blog.date);
   const handleDelete = async () => {
     try {
-      const response = await fetch(`/api/blog/delete/${blog._id}`);
+      const response = await fetch(
+        `https://blogit-9doz.onrender.com/api/blog/delete/${blog._id}`
+      );
       const data = await response.json();
       toast.success(data.message);
       nav("/");

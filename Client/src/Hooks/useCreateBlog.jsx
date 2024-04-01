@@ -13,20 +13,23 @@ const useCreateBlog = () => {
   }) => {
     setloading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/blog/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          author_id: author_id,
-          title: title,
-          description: description,
-          image: image,
-          categories: categories,
-          name: name,
-        }),
-      });
+      const res = await fetch(
+        "http://localhost:5000https://blogit-9doz.onrender.com/api/blog/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            author_id: author_id,
+            title: title,
+            description: description,
+            image: image,
+            categories: categories,
+            name: name,
+          }),
+        }
+      );
       const data = await res.json();
       if (data.error) {
         toast.error(data.error);

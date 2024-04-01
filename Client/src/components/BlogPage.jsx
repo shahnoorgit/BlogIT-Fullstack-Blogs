@@ -14,7 +14,9 @@ const BlogPage = () => {
   const fetchBlog = async () => {
     setloading(true);
     try {
-      const response = await fetch(`/api/blog/fetch/${blog_id}`);
+      const response = await fetch(
+        `https://blogit-9doz.onrender.com/api/blog/fetch/${blog_id}`
+      );
       const data = await response.json();
       setBlog(data);
     } catch (error) {

@@ -7,7 +7,9 @@ const useFetchMyBlogs = () => {
   const myblogs = async (_id) => {
     setloading(true);
     try {
-      const res = await fetch(`/api/blog/myblogs/${_id}`);
+      const res = await fetch(
+        `https://blogit-9doz.onrender.com/api/blog/myblogs/${_id}`
+      );
       const data = await res.json();
       setMyBlog(data);
       setloading(false);

@@ -66,7 +66,7 @@ const Navbar = ({ Auth, user }) => {
                 <img
                   className=" max-sm:hidden w-10 h-10 rounded-badge"
                   // eslint-disable-next-line react/prop-types
-                  src={user.profile.url}
+                  src={user?.profile.url}
                 />
               </div>
             )}

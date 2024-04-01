@@ -10,11 +10,15 @@ const Profile = () => {
   const authorDetails = async () => {
     setloading(true);
     try {
-      const res = await fetch(`/api/users/author/${Auth.name}`);
+      const res = await fetch(
+        `https://blogit-9doz.onrender.com/api/users/author/${Auth.name}`
+      );
       const data = await res.json();
       setAuthor(data);
       try {
-        const res = await fetch(`/api/blog/myblogs/${data._id}`);
+        const res = await fetch(
+          `https://blogit-9doz.onrender.com/api/blog/myblogs/${data._id}`
+        );
         const Authdata = await res.json();
         setAuthorBlog(Authdata);
       } catch (error) {

@@ -8,16 +8,19 @@ const useLogin = () => {
   const loginFunc = async ({ username, password }) => {
     setLoading(true);
     try {
-      const res = await fetch("/api/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
+      const res = await fetch(
+        "https://blogit-9doz.onrender.com/api/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+        }
+      );
       const data = await res.json();
       if (data.error) {
         toast.error(data.error);

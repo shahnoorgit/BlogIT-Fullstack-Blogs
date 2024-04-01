@@ -8,7 +8,9 @@ const useLogout = () => {
   const Logout = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/users/logout");
+      const res = await fetch(
+        "https://blogit-9doz.onrender.com/api/users/logout"
+      );
       const data = await res.json();
       if (data.error) {
         throw new Error(data.error);

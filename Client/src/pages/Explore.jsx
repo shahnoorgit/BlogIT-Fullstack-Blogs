@@ -15,7 +15,9 @@ const Explore = () => {
   const categoryBlog = async (category) => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/blog/category/${category}`);
+      const res = await fetch(
+        `https://blogit-9doz.onrender.com/api/blog/category/${category}`
+      );
       const data = await res.json();
       setCategorizedBlogs(data);
     } catch (error) {
