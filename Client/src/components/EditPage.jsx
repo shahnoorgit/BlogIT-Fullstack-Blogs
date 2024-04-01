@@ -6,7 +6,6 @@ import useUpdateBlog from "../Hooks/useUpdateBlog";
 const EditPage = () => {
   const nav = useNavigate();
   const { id } = useParams();
-  console.log(id);
   const [loading, setloading] = useState(false);
   const [Input, setInput] = useState({
     _id: id,
@@ -20,7 +19,6 @@ const EditPage = () => {
     try {
       const response = await fetch(`/api/blog/fetch/${id}`);
       const data = await response.json();
-      console.log("data here", data);
       setInput({
         _id: data._id,
         title: data.title,
@@ -35,7 +33,6 @@ const EditPage = () => {
     }
   };
 
-  console.log(Input.categories);
   const handleSubmit = async (e) => {
     e.preventDefault();
     await Updateblog(Input);

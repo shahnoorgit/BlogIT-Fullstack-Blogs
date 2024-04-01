@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 const BlogPage = () => {
   const { blog_id } = useParams();
   const nav = useNavigate();
-  console.log(blog_id);
   const [loading, setloading] = useState(false);
   const [blog, setBlog] = useState();
   const formateDate = parseDateString(blog?.date);
@@ -27,7 +26,6 @@ const BlogPage = () => {
   useEffect(() => {
     fetchBlog();
   }, []);
-  console.log(blog);
   const goToAuthor = () => {
     nav(`/author/${blog.author_name}`);
   };

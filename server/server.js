@@ -13,7 +13,7 @@ app.use(bodyParser.json({ limit: "10mb" }));
 app.use(cors());
 app.use(express.json());
 
-app.listen(process.env.PORT, () => {
+app.listen(8080, () => {
   connectDb();
   console.log("running");
 });

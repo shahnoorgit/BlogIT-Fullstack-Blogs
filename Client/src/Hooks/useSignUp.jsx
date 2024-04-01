@@ -17,7 +17,6 @@ const useSignup = () => {
   }) => {
     setLoading(true);
     try {
-      console.log("heyyy");
       const res = await fetch("/api/users/signup", {
         method: "POST",
         headers: {

@@ -19,7 +19,6 @@ const useUpdateBlog = () => {
         }),
       });
       const data = await res.json();
-      console.log(data);
       toast.success(data.message);
     } catch (error) {
       console.log(error);

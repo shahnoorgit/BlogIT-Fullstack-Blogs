@@ -11,7 +11,7 @@ import { AuthProvider } from "../context/AuthContext";
 const Card = ({ blog }) => {
   const { Auth } = useContext(AuthProvider);
   const isEdit = blog.author === Auth.id;
-  console.log(isEdit);
+
   const nav = useNavigate();
   const MAX_CONTENT_LENGTH = 150;
   const truncatedContent =

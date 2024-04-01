@@ -9,7 +9,6 @@ const useFetchMyBlogs = () => {
     try {
       const res = await fetch(`/api/blog/myblogs/${_id}`);
       const data = await res.json();
-      console.log(data);
       setMyBlog(data);
       setloading(false);
     } catch (err) {

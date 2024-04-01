@@ -32,7 +32,6 @@ const useCreateBlog = () => {
         toast.error(data.error);
         throw new Error(data.error);
       }
-      console.log(data);
     } catch (error) {
       console.error(error);
     } finally {

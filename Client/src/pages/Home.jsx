@@ -5,8 +5,7 @@ import { BlogsProvider } from "../context/BlogContext";
 
 // eslint-disable-next-line react/prop-types
 const Home = ({ isAuth }) => {
-  const { Blogs, myBlog } = useContext(BlogsProvider);
-  console.log(myBlog);
+  const { Blogs } = useContext(BlogsProvider);
   const { fetchBlog, loading } = useFetch();
   useEffect(() => {
     fetchBlog();

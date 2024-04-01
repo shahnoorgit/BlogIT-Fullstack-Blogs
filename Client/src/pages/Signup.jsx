@@ -23,7 +23,6 @@ const Signup = () => {
   };
   const HandleSubmit = async (e) => {
     e.preventDefault();
-    console.log(Input);
     await signup(Input);
   };
 

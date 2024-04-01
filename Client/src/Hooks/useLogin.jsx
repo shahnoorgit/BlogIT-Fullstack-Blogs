@@ -8,7 +8,6 @@ const useLogin = () => {
   const loginFunc = async ({ username, password }) => {
     setLoading(true);
     try {
-      console.log("func started");
       const res = await fetch("/api/users/login", {
         method: "POST",
         headers: {
