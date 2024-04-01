@@ -1,12 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import useUpdateBlog from "../Hooks/useUpdateBlog";
-import { AuthProvider } from "../context/AuthContext";
 
 const EditPage = () => {
   const nav = useNavigate();
-  const { Auth } = useContext(AuthProvider);
   const { id } = useParams();
   console.log(id);
   const [loading, setloading] = useState(false);
