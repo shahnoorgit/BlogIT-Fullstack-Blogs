@@ -17,7 +17,7 @@ BlogIt is a modern and versatile blogging platform built using the MERN (MongoDB
 
 <!-- List the technologies and tools used in building BlogIt -->
 
-- **Frontend**: React.js, Redux, React Router, Material-UI
+- **Frontend**: React.js, useContext, React Router, Tailwind,DaisyUI
 - **Backend**: Node.js, Express.js, MongoDB (Mongoose)
 - **Authentication**: JSON Web Tokens (JWT)
 - **Cloudinary**: Cloud-based media management platform
